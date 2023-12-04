@@ -2,11 +2,11 @@ package course2homework14.course2;
 
 import java.util.Arrays;
 
-public class StringListImpl implements StringList{
+public class StringListImpl implements StringList {
 
     private final String[] storage;
-    private int size; 
-    
+    private int size;
+
     public StringListImpl() {
         storage = new String[10];
     }
@@ -29,7 +29,7 @@ public class StringListImpl implements StringList{
         validateSize();
         validateItem(item);
         validateIndex(index);
-        
+
         if (index == size) {
             storage[size++] = item;
             return item;
@@ -39,7 +39,7 @@ public class StringListImpl implements StringList{
         storage[index] = item;
         size++;
 
-        return item; 
+        return item;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class StringListImpl implements StringList{
         validateItem(item);
 
         int index = indexOf(item);
-        
+
         return remove(index);
     }
 
@@ -66,7 +66,7 @@ public class StringListImpl implements StringList{
         String item = storage[index];
 
         if (index != size) {
-            System.arraycopy(storage, index + 1, storage, index, size - (index +1));
+            System.arraycopy(storage, index + 1, storage, index, size - (index + 1));
         }
 
         size--;
@@ -85,7 +85,7 @@ public class StringListImpl implements StringList{
                 return i;
             }
         }
-        return -1; 
+        return -1;
     }
 
     @Override
@@ -95,23 +95,23 @@ public class StringListImpl implements StringList{
                 return i;
             }
         }
-        return -1; 
+        return -1;
     }
 
     @Override
     public String get(int index) {
         validateIndex(index);
-        return storage[index]; 
+        return storage[index];
     }
 
     @Override
     public boolean equals(StringList otherList) {
-        return Arrays.equals(this.toArray(), otherList.toArray()); 
+        return Arrays.equals(this.toArray(), otherList.toArray());
     }
 
     @Override
-    public int size() { 
-        return size; 
+    public int size() {
+        return size;
     }
 
     @Override
@@ -120,13 +120,13 @@ public class StringListImpl implements StringList{
     }
 
     @Override
-    public void clear () {
+    public void clear() {
         size = 0;
 
     }
 
     @Override
-    public String[] toArray() { 
+    public String[] toArray() {
         return Arrays.copyOf(storage, size);
     }
 
@@ -137,7 +137,7 @@ public class StringListImpl implements StringList{
     }
 
     private void validateSize() {
-        if (size == storage.length) {   
+        if (size == storage.length) {
             throw new StorageIsFullException();
         }
     }

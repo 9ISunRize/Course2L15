@@ -21,3 +21,4 @@ public class StorageIsFullException extends RuntimeException {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 }
+
